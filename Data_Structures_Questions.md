@@ -9,8 +9,10 @@ Answer the following questions for each of the data structures you implemented a
     --> O(1)
 
 3. What is the runtime complexity of `pop` using a list?
+    --> O(n)
 
 4. What is the runtime complexity of `pop` using a linked list?
+    --> O(1)
 
 5. What is the runtime complexity of `len` using a list?
 

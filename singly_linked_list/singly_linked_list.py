@@ -1,3 +1,5 @@
+
+
 class Node:
     def __init__(self, value=None, next_node=None):
         self.value = value
@@ -47,5 +49,36 @@ class LinkedList:
         while current_node is not None:
             if current_node.value == value:
                 return True
-            current_node = current_node.next_node.value
+            current_node = current_node.next_node
         return False
+
+    def get_max(self):
+        if self.head is None:
+            return None
+        current_node = self.head
+        max_value = self.head.value
+        while current_node.next_node is not None:
+            if current_node.value < current_node.next_node.value and current_node.next_node.value > max_value:
+                max_value = current_node.next_node.value
+                current_node = current_node.next_node
+            else:
+                current_node = current_node.next_node
+
+        return max_value
+
+
+# xer = LinkedList()
+# xer.add_to_head(34)
+# xer.add_to_head(24)
+# xer.add_to_head(2224)
+# xer.add_to_head(123434)
+# xer.add_to_head(56724)
+# xer.add_to_head(23834)
+# xer.add_to_head(24)
+# xer.add_to_head(134)
+# xer.add_to_head(222224)
+# xer.add_to_head(34)
+# xer.add_to_head(2467)
+
+
+# print(xer.get_max())

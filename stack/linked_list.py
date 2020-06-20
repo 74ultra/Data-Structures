@@ -49,3 +49,26 @@ class LinkedList:
                 return True
             current_node = current_node.next_node.value
         return False
+
+    def remove_tail(self):
+        # check for an empty list
+        if not self.head:
+            return None
+        # check if list only contains one item
+        if self.head is self.tail:
+            value = self.tail.value
+            self.head = None
+            self.tail = None
+            return value
+        # prepare to loop through nodes
+        current = self.head
+        # checks each node to see if the next node is the tail
+        while current.next_node is not self.tail:
+            current = current.next_node
+
+        value = self.tail.value
+        # the next to last node is set as the tail
+        self.tail = current
+        # the new tail's next_node is set to be None
+        self.tail.next_node = None
+        return value
