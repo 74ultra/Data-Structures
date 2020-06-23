@@ -27,30 +27,49 @@ class BSTNode:
             # go left
             if self.left:
                 # self.left exists
-                self.left.insert(value)
+                return self.left.insert(value)
             else:
                 self.left = BSTNode(value)
         else:
             # go right
             if self.right:
                 # self.right exists
-                self.right.insert(value)
+                return self.right.insert(value)
             else:
-                self.left = BSTNode(value)
+                self.right = BSTNode(value)
 
     # Return True if the tree contains the value
     # False if it does not
 
     def contains(self, target):
-        pass
-
+        if target == self.value:
+            return True
+        elif target < self.value:
+            if self.left:
+                return self.left.contains(target)
+            else:
+                return False
+        elif target > self.value:
+            if self.right:
+                return self.right.contains(target)
+            else:
+                return False
     # Return the maximum value found in the tree
+
     def get_max(self):
-        pass
+        max_val = self.value
+        if self.right:
+            return self.right.get_max()
+        else:
+            return max_val
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        fn(self.value)
+        if self.left:
+            self.left.for_each(fn)
+        if self.right:
+            self.right.for_each(fn)
 
     # Part 2 -----------------------
 
@@ -79,3 +98,15 @@ class BSTNode:
     # Print Post-order recursive DFT
     def post_order_dft(self, node):
         pass
+
+
+# xer = BSTNode(6)
+# for i in range(1, 12):
+#     xer.insert(i)
+
+
+# def temp_cb(val):
+#     print(2 * val)
+
+
+# print(xer.for_each(temp_cb))
