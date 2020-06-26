@@ -71,3 +71,8 @@ class Stack:
 #             return None
 #         self.size -= 1
 #         return self.storage.pop(0)
+
+
+xer = Stack()
+xer.push(5)
+print(xer.storage.tail.value)
